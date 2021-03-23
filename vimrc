@@ -22,6 +22,9 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' } "My theme
 "Plug 'scrooloose/syntastic'
 Plug 'jiangmiao/auto-pairs' " Auto pair for {. [, etc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" For SML things
+Plug 'jez/vim-better-sml'
 call plug#end()
 
 
@@ -180,4 +183,14 @@ autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit'
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 

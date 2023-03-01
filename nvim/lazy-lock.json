@@ -1,0 +1,10 @@
+{
+  "dracula": { "branch": "master", "commit": "eb577d47b0cfc9191bf04c414b4042d5f1a980f8" },
+  "lazy.nvim": { "branch": "main", "commit": "8077428e63feb0f3bf795d53b23ba1695b28ab0e" },
+  "nord.nvim": { "branch": "master", "commit": "9824b8511dcb7d89de628d7e9bab5fa65c9d59d1" },
+  "nvim-treesitter": { "branch": "master", "commit": "934113c913c773d8b60225c0f570f5f8ce88eb68" },
+  "nvim-treesitter-textobjects": { "branch": "master", "commit": "4b30081d2736e09f90c890a8a7adfe4df36f5b36" },
+  "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
+  "telescope.nvim": { "branch": "master", "commit": "a486ac3e8fb2198f3636da1927ed57a28836fbd8" },
+  "vim-floaterm": { "branch": "master", "commit": "ca44a13a379d9af75092bc2fe2efee8c5248e876" }
+}

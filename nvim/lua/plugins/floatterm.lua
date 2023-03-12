@@ -1,5 +1,3 @@
 return {
-    {
         "voldikss/vim-floaterm",
-    }
 }

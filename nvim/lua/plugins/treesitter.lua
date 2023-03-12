@@ -31,6 +31,7 @@ return {
             highlight = { enable = true },
             indent  = { enable = true, disable = { "python" } },
             context_commentstring = { enable = true, enable_autocmd = false },
+            incremental_selection = { enable = true },
             -- Languages: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
             ensure_installed = {
                 "bash",

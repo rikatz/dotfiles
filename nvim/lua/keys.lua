@@ -50,6 +50,7 @@ map("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
 map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
 map("n", "<leader>xr", "<cmd>TroubleToggle lsp_references<cr>", opts)
 
+
 -- Telescope is life
 map('n', 'ff', "<cmd>Telescope find_files<cr>", opts)
 map('n', 'fg', "<cmd>Telescope live_grep<cr>", opts)
@@ -81,6 +82,14 @@ map('n','<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
 map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
+
+-- Git diff view
+map('n','<leader>dv', '<cmd>DiffviewOpen<cr>', opts)
+
+-- TODO map keys
+map('n','<leader>xt','<cmd>TodoTrouble<cr>', opts)
+map('n','<leader>tt','<cmd>TodoTelescope<cr>', opts)
+
 
 -- Other default keys
 -- folding: zc, zo, zR, za, etc (close, open, Open Recursivelly, toggle, )

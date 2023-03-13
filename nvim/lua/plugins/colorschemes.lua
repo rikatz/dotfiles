@@ -6,7 +6,4 @@ return {
     {
         "shaunsingh/nord.nvim",
     },
-    {
-        "folke/tokyonight.nvim"
-    },
 }

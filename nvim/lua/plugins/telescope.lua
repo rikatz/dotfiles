@@ -10,9 +10,10 @@ return {
               -- Should be careful with fzf native as it needs build tools that may not be available
               "nvim-telescope/telescope-fzf-native.nvim",
               build = "make",
-                config = function()
+              config = function()
                   require("telescope").load_extension("fzf")
-                end,
+                  require("telescope").load_extension("file_browser")
+              end,
             },
         },
         extensions = {

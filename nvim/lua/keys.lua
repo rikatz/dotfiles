@@ -4,8 +4,10 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- format: mode, Key, Command, opts
--- Toggle nvim-tree
-map('n', 'T', '<Cmd>NvimTreeToggle<CR>', {})
+-- Toggle File Browser
+map('n', 'T', '<Cmd>Telescope file_browser<CR>', opts)
+-- Opens Filebrowser on current path from buffer
+map('n', 'TT', '<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', opts)
 
 -- tabline should be installed for better experience: https://github.com/romgrk/barbar.nvim
 -- Move to previous/next
@@ -38,7 +40,6 @@ map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 -- Floatterm bindings
-map('n', '<leader>ft', ':FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 zsh <CR>', {})
 map('n', 't', ':FloatermToggle myfloat<CR>', {})
 map('t', '<leader><Esc>', '<C-\\><C-n>:q<CR>', {})
 
@@ -61,6 +62,8 @@ map('n', 'fa', "<cmd>Telescope help_tags<cr>", opts)
 map('n', 'fd', "<cmd>Telescope diagnostics<cr>", opts)
 map('n', 'fr', "<cmd>Telescope lsp_definitions<cr>", opts)
 map('n', 'fm', "<cmd>Telescope lsp_implementations<cr>", opts)
+map('n', 'ft', "<cmd>Telescope diagnostics<cr>", opts)
+
 
 -- Twilight for my ADHD
 map('n', 'mm', "<cmd>Twilight<cr>", opts)

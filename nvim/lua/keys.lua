@@ -5,9 +5,9 @@ local opts = { noremap = true, silent = true }
 
 -- format: mode, Key, Command, opts
 -- Toggle File Browser
-map('n', 'T', '<Cmd>Telescope file_browser<CR>', opts)
+map('n', 'T', '<Cmd>Telescope file_browser hidden=true<CR>', opts)
 -- Opens Filebrowser on current path from buffer
-map('n', 'TT', '<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', opts)
+map('n', 'TT', '<Cmd>Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>', opts)
 
 -- tabline should be installed for better experience: https://github.com/romgrk/barbar.nvim
 -- Move to previous/next
@@ -53,7 +53,7 @@ map("n", "<leader>xr", "<cmd>TroubleToggle lsp_references<cr>", opts)
 
 
 -- Telescope is life
-map('n', 'ff', "<cmd>Telescope find_files<cr>", opts)
+map('n', 'ff', "<cmd>Telescope find_files hidden=true<cr>", opts)
 map('n', 'fg', "<cmd>Telescope live_grep<cr>", opts)
 map('n', 'fi', "<cmd>Telescope git_files<cr>", opts)
 map('n', 'fb', "<cmd>Telescope buffers<cr>", opts)

@@ -15,7 +15,27 @@ return {
                   require("telescope").load_extension("file_browser")
               end,
             },
+            {
+              -- Better way of doing, stollen from https://github.com/folke/dot/blob/master/nvim/lua/plugins/telescope.lua
+              -- Should be careful with fzf native as it needs build tools that may not be available
+              "nvim-telescope/telescope-file-browser.nvim",
+              build = "make",
+              config = function()
+                  require("telescope").load_extension("file_browser")
+              end,
+            },
+
         },
+        opts = {
+            defaults = {
+                file_ignore_patterns = {
+                    "^.git/",
+                },
+            },
+        },
+        config = function(_, opts)
+            require("telescope").setup(opts)
+        end,
         extensions = {
           fzf = {
             fuzzy = true,                    -- false will only do exact matching
@@ -23,6 +43,9 @@ return {
             override_file_sorter = true,     -- override the file sorter
             case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                                    -- the default case_mode is "smart_case"
+          },
+          file_browser = {
+            hidden = true,
           }
         }
 }

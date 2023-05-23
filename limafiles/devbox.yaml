@@ -1,0 +1,54 @@
+# My devbox, based on Ubuntu
+# # Not using arch here as it doesn't support, apparently, MacOS VZ mode (needs LegacyBios mode)
+# I use it to connect via ssh or whatever and use remote vscode.
+
+images:
+- location: "https://cloud-images.ubuntu.com/releases/22.10/release/ubuntu-22.10-server-cloudimg-amd64.img"
+  arch: "x86_64"
+
+
+vmType: vz
+cpus: 4
+memory: 12GiB
+disk: 100GiB
+mountType: virtiofs
+networks:
+- vzNAT: true
+
+mounts:
+- location: "~"
+  # Living dangerously
+  writable: true
+- location: "/tmp/lima"
+  writable: true
+containerd:
+  system: false
+  user: false
+
+provision:
+- mode: system
+  script: |
+    #!/bin/bash
+    set -eux -o pipefail
+    curl https://dl.google.com/go/go1.20.4.linux-amd64.tar.gz |tar -C /usr/local -xvz
+    echo 'export PATH=$PATH:/usr/local/go/bin' > /etc/profile.d/go.sh
+    chmod +x /etc/profile.d/go.sh
+- mode: system
+  script: |
+    #!/bin/sh
+    # Specific DNS config, to add the right entry to hosts, and get rid of search paths (:wave:)
+    sed -i "s/127.0.0.1 localhost.*/127.0.0.1 localhost lima-${LIMA_CIDATA_NAME}/" /etc/hosts
+    netplan set ethernets.eth0.dhcp4-overrides.use-domains=false
+    netplan set ethernets.lima0.dhcp4-overrides.use-domains=false
+    netplan set ethernets.lima0.dhcp4-overrides.use-routes=false
+    netplan apply
+    systemctl restart systemd-networkd
+
+probes:
+- script: |
+    #!/bin/bash
+    set -eux -o pipefail
+    if ! timeout 30s bash -c "until command -v /usr/local/go/bin/go >/dev/null 2>&1; do sleep 3; done"; then
+      echo >&2 "go is not installed yet"
+      exit 1
+    fi

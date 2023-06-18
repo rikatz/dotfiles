@@ -4,7 +4,6 @@ return {
         "neovim/nvim-lspconfig",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "ms-jpq/coq_nvim",
         "ray-x/guihua.lua", -- For go plugin floatterms
     },
     opts = {

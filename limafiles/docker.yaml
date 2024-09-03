@@ -5,12 +5,14 @@
 # $ export DOCKER_HOST=$(limactl list docker --format 'unix://{{.Dir}}/sock/docker.sock')
 # $ docker ...
 
-# Using ubuntu 23.04 doesn't work, no clue why. Keeping 22.04 for now
 images:
-- location: "https://cloud-images.ubuntu.com/releases/22.04/release-20230518/ubuntu-22.04-server-cloudimg-amd64.img"
+# Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
+- location: "https://cloud-images.ubuntu.com/releases/24.04/release-20240821/ubuntu-24.04-server-cloudimg-amd64.img"
   arch: "x86_64"
-  digest: "sha256:afb820a9260217fd4c5c5aacfbca74aa7cd2418e830dc64ca2e0642b94aab161"
-- location: "https://cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-amd64.img"
+  digest: "sha256:0e25ca6ee9f08ec5d4f9910054b66ae7163c6152e81a3e67689d89bd6e4dfa69"
+# Fallback to the latest release image.
+# Hint: run `limactl prune` to invalidate the cache
+- location: "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-amd64.img"
   arch: "x86_64"
 
 vmType: vz
@@ -77,10 +79,4 @@ hostResolver:
 portForwards:
 - guestSocket: "/run/docker.sock"
   hostSocket: "{{.Dir}}/sock/docker.sock"
-message: |
-  To run `docker` on the host (assumes docker-cli is installed), run the following commands:
-  ------
-  docker context create lima-{{.Name}} --docker "host=unix://{{.Dir}}/sock/docker.sock"
-  docker context use lima-{{.Name}}
-  docker run hello-world
-  ------
+

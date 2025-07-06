@@ -1,0 +1,8 @@
+theme = catppuccin-mocha
+split-divider-color = red
+font-family = "JetBrainsMono Nerd Font Mono"
+# Use Alt + Click to go to a position
+cursor-click-to-move = true
+maximize = true
+fullscreen = true
+macos-option-as-alt = true

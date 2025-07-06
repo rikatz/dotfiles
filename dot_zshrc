@@ -1,0 +1,24 @@
+autoload -Uz compinit 
+compinit
+zstyle ':completion:*' rehash true
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000000
+SAVEHIST=10000000
+EDITOR=nvim
+export SAVEHIST=$HISTSIZE
+
+setopt appendhistory
+
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source <(/usr/bin/starship init zsh --print-full-init)
+source <(fzf --zsh)
+
+source "$HOME/.cargo/env"
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+alias k=kubectl
+alias vim=nvim
+alias vi=nvim
+alias ll="ls -l"

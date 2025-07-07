@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+set -x
+
+OS="{{ .chezmoi.osRelease.idLike }}"
+
+IFS="
+"
+
+# Arch Linux specifics
+{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+
+# arch.sh: {{ include "install/archlinux/arch.sh" | sha256sum }}
+source {{ joinPath .chezmoi.sourceDir "install/archlinux/arch.sh" | quote }}
+
+# pacman.txt: {{ include "install/archlinux/pacman.txt" | sha256sum }}
+# yay.txt: {{ include "install/archlinux/yay.txt" | sha256sum }}
+arch_install {{ joinPath .chezmoi.sourceDir "install/archlinux/pacman.txt" | quote }} {{ joinPath .chezmoi.sourceDir "install/archlinux/yay.txt" | quote }} 
+{{ end -}}
+
+
+# Binary installs
+# rust.sh: {{ include "install/binary/rust.sh" | sha256sum }}
+{{ joinPath .chezmoi.sourceDir "install/binary/rust.sh" }}

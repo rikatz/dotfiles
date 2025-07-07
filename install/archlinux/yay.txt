@@ -1,0 +1,7 @@
+1password
+kind-bin
+shellcheck-bin
+slack-desktop
+topgrade-bin
+visual-studio-code-bin
+zoom

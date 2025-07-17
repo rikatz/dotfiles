@@ -1,0 +1,19 @@
+theme = "onedarker"
+
+[editor]
+continue-comments = false
+rulers = [80]
+bufferline = "always"
+auto-pairs = false
+
+[editor.statusline]
+center = ["version-control"]
+
+[editor.indent-guides]
+render = true
+character = "╎"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"

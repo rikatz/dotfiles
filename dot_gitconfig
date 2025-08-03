@@ -8,5 +8,13 @@
 [merge]
   conflictStyle = zdiff3
 [user]
-  email = ricardo.katz@gmail.com
+  email = katz@redhat.com
   name = Ricardo Pchevuzinske Katz
+
+[includeIf "gitdir:~/codes/personal/"]
+  path = .gitconfig-personal
+
+[includeIf "gitdir:~/codes/upstream/"]
+  path = .gitconfig-personal
+
+

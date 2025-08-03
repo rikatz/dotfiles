@@ -1,0 +1,16 @@
+fzf
+git-delta
+ghostty
+golang
+gopls
+helix
+helm
+htop
+kubernetes1.33-client
+neovim
+ripgrep
+shellcheck
+starship
+topgrade
+zsh
+zsh-autosuggestions

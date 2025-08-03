@@ -2,13 +2,11 @@
 set -euo pipefail
 set -x
 
-OS="{{ .chezmoi.osRelease.idLike }}"
-
 IFS="
 "
 
 # Arch Linux specifics
-{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+{{ if eq .chezmoi.osRelease.id "arch" -}}
 
 # arch.sh: {{ include "install/archlinux/arch.sh" | sha256sum }}
 source {{ joinPath .chezmoi.sourceDir "install/archlinux/arch.sh" | quote }}
@@ -18,6 +16,15 @@ source {{ joinPath .chezmoi.sourceDir "install/archlinux/arch.sh" | quote }}
 arch_install {{ joinPath .chezmoi.sourceDir "install/archlinux/pacman.txt" | quote }} {{ joinPath .chezmoi.sourceDir "install/archlinux/yay.txt" | quote }} 
 {{ end -}}
 
+# Arch Linux specifics
+{{ if eq .chezmoi.osRelease.id "fedora" -}}
+
+# fedora.sh: {{ include "install/fedora/fedora.sh" | sha256sum }}
+source {{ joinPath .chezmoi.sourceDir "install/fedora/fedora.sh" | quote }}
+
+# dnf.txt: {{ include "install/fedora/dnf.txt" | sha256sum }}
+dnf_install {{ joinPath .chezmoi.sourceDir "install/fedora/dnf.txt" | quote }} {{ joinPath .chezmoi.sourceDir "install/fedora/copr.txt" | quote }} 
+{{ end -}}
 
 # Binary installs
 # rust.sh: {{ include "install/binary/rust.sh" | sha256sum }}

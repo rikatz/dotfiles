@@ -14,7 +14,8 @@
     "editor.rulers": [
         {
             "color": "#FF0000",
-            "column": 80,
+            "column": 80
         }
-    ]
+    ],
+    "workbench.secondarySideBar.defaultVisibility": "hidden"
 }

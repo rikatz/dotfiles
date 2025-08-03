@@ -6,7 +6,8 @@ IFS="
 "
 
 # Arch Linux specifics
-{{ if eq .chezmoi.osRelease.id "arch" -}}
+{{ if hasKey .chezmoi.osRelease "idLike" -}}
+{{ if eq .chezmoi.osRelease.idLike "arch" | default "" -}}
 
 # arch.sh: {{ include "install/archlinux/arch.sh" | sha256sum }}
 source {{ joinPath .chezmoi.sourceDir "install/archlinux/arch.sh" | quote }}
@@ -15,7 +16,7 @@ source {{ joinPath .chezmoi.sourceDir "install/archlinux/arch.sh" | quote }}
 # yay.txt: {{ include "install/archlinux/yay.txt" | sha256sum }}
 arch_install {{ joinPath .chezmoi.sourceDir "install/archlinux/pacman.txt" | quote }} {{ joinPath .chezmoi.sourceDir "install/archlinux/yay.txt" | quote }} 
 {{ end -}}
-
+{{ end -}}
 # Arch Linux specifics
 {{ if eq .chezmoi.osRelease.id "fedora" -}}
 

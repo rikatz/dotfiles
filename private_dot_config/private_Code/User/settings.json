@@ -7,6 +7,7 @@
     "workbench.commandPalette.experimental.enableNaturalLanguageSearch": false,
     "workbench.sideBar.location": "right",
     "workbench.tips.enabled": false,
+    "workbench.editor.wrapTabs": true,
     "workbench.statusBar.visible": false,
     "workbench.colorTheme": "One Dark Pro Night Flat",
     "go.testTimeout": "300s",

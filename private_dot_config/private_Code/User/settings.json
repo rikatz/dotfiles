@@ -11,6 +11,7 @@
     "workbench.statusBar.visible": false,
     "workbench.colorTheme": "One Dark Pro Night Flat",
     "go.testTimeout": "300s",
+    "go.buildTags": "e2e, ",
     "window.nativeTabs": true,
     "editor.rulers": [
         {

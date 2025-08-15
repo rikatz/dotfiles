@@ -18,3 +18,5 @@
   path = .gitconfig-personal
 
 
+[init]
+	defaultBranch = main

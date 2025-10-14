@@ -6,7 +6,7 @@ gopls
 helix
 helm
 htop
-kubernetes1.33-client
+kubernetes1.34-client
 neovim
 ripgrep
 shellcheck

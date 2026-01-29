@@ -10,7 +10,6 @@ export SAVEHIST=$HISTSIZE
 
 setopt appendhistory
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(/usr/bin/starship init zsh --print-full-init)
 source <(fzf --zsh)
 
@@ -23,3 +22,13 @@ alias vim=nvim
 alias vi=nvim
 alias ll="ls -l"
 alias hx="helix"
+
+export CLAUDE_CODE_USE_VERTEX=1
+export CLOUD_ML_REGION=us-east5
+export ANTHROPIC_VERTEX_PROJECT_ID=itpc-gcp-hybrid-pe-eng-claude
+export PATH=$PATH:$HOME/.npm-global/bin
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+export PATH="$HOME/.local/bin:$PATH"

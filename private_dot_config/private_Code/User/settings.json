@@ -15,7 +15,7 @@
         "GOOS": "linux",
         "GOARCH": "amd64"
     },
-    "go.buildTags": "e2e",
+    "go.buildTags": "e2e,integration,integ",
     "window.nativeTabs": true,
     "editor.rulers": [
         {

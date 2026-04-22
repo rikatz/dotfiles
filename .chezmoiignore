@@ -2,3 +2,8 @@ install/
 install/**
 
 README.md
+
+# Ignore Claude Code memory and session data
+.claude/projects/**/memory/
+.claude/projects/**/history/
+.claude/logs/

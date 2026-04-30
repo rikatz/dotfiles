@@ -1,3 +1,10 @@
+# Accuracy & Verification
+- Do not invent APIs, functions, types, or behavior. Only use what exists in the codebase or referenced docs.
+- Verify by reading code, running commands, or checking docs. If you cannot verify, ask the user and stop; do not guess or make something up.
+
+# Mandatory: Always use RTK
+**Every** Bash command MUST be prefixed with `rtk`. Even in `&&` chains, each command gets its own `rtk` prefix. RTK is always safe — if it has a filter it uses it, otherwise it passes through unchanged. This saves 60-90% of tokens on command output. The only exception is if `rtk` is actively breaking a specific command — in that case, run without it and note why.
+
 # Global Engineering Standards (OpenShift & Golang)
 
 ## Agentic Protocol (The.GCC Protocol)
